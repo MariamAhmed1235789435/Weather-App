@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    
+    <section class="my-5 text-center container">
+      <h1 class="text-white mb-5">Location</h1>
+
+      <div class="search-container">
+        <!-- Input with Search Icon -->
+        <div class="position-relative flex-grow-1">
+          <i class="icon fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            class="form-control inputpage2 w-lg-100 w-md-75 w-sm-50"
+            id="searchInp"
+            placeholder="Search for location..."
+          />
+        </div>
+
+        <!-- Button -->
+        <button class="btn_location">
+          <i class="icon-map fa-solid fa-location-dot"></i>
+        </button>
+      </div>
+    </section>
+
+    <section class="mt-5">
+      <div class="container">
+        <div id="cards" class="row gy-4">
+          <!-- Dynamic weather cards -->
+        </div>
+      </div>
+    </section>
+    <script src="./java/bootstrap.bundle.js"></script>
+    <script src="./java/script.js"></script>
+  </body>
+</html>
