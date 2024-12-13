@@ -39,8 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fetch Weather Data from API
   async function getWeather(location) {
     try {
+        const proxy = "https://cors-anywhere.herokuapp.com/";
       const response = await fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=78cc8a072c9e4f3e9d0171535240912&q=${location}&days=3`
+         `https://api.weatherapi.com/v1/forecast.json?key=78cc8a072c9e4f3e9d0171535240912&q=${location}&days=3`
       );
 
       if (response.status !== 200)
