@@ -36,17 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Fetch Weather Data from API
-  async function getWeather(location) {
+
+// Fetch Weather Data from API
+async function getWeather(location) {
     try {
-        const proxy = "https://cors-anywhere.herokuapp.com/";
       const response = await fetch(
-         `https://api.weatherapi.com/v1/forecast.json?key=78cc8a072c9e4f3e9d0171535240912&q=${location}&days=3`
+        `https://api.weatherapi.com/v1/forecast.json?key=bacc653bd42342e2a37155053240911&q=${location}&days=3`
       );
-
-      if (response.status !== 200)
-        throw new Error("Failed to fetch weather data.");
-
+  
+      if (response.status !== 200) throw new Error("Failed to fetch weather data.");
+  
       const result = await response.json();
       displayWeather(result);
       weatherAlert.classList.add("d-none"); // Hide alert on success
@@ -58,6 +57,20 @@ document.addEventListener("DOMContentLoaded", function () {
       cards.classList.add("d-none"); // Hide cards on error
     }
   }
+  
+  // Handle Geolocation Success
+function success(position) {
+    const location = `${position.coords.latitude},${position.coords.longitude}`;
+    getWeather(location);
+  }
+
+  // On Load - Fetch Weather by Geolocation
+window.addEventListener("load", function () {
+    navigator.geolocation.getCurrentPosition(success, (error) => {
+      console.error("Geolocation error:", error);
+      alert("Geolocation failed. Please search manually.");
+    });
+  });
 
   // Display Weather Cards
   function displayWeather(result) {
